@@ -1,0 +1,2514 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.0.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.0.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
+                                <a href="#endpoints-GETapi-user">GET api/user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products">
+                                <a href="#endpoints-GETapi-products">GET api/products</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products-search--keywords-">
+                                <a href="#endpoints-GETapi-products-search--keywords-">GET api/products/search/{keywords}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products-categories">
+                                <a href="#endpoints-GETapi-products-categories">GET api/products/categories</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products-category--category_name-">
+                                <a href="#endpoints-GETapi-products-category--category_name-">GET api/products/category/{category_name}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-products">
+                                <a href="#endpoints-POSTapi-products">POST api/products</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-products--product_id-">
+                                <a href="#endpoints-PUTapi-products--product_id-">PUT api/products/{product_id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-products--product_id-">
+                                <a href="#endpoints-DELETEapi-products--product_id-">DELETE api/products/{product_id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-products--product_id-">
+                                <a href="#endpoints-GETapi-products--product_id-">GET api/products/{product_id}</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: October 12 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-user">GET api/user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/user" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/user"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-user">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user"></code></pre>
+</span>
+<span id="execution-error-GETapi-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user"></code></pre>
+</span>
+<form id="form-GETapi-user" data-method="GET"
+      data-path="api/user"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user"
+                    onclick="tryItOut('GETapi-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user"
+                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products">GET api/products</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/products" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Jacket&quot;,
+            &quot;description&quot;: &quot;Given Jacket Description&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 1234.56,
+            &quot;brand&quot;: &quot;KuyaWill&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://netstorage-kami.akamaized.net/images/0fgjhs1shmj74jpi4g.jpg?&amp;imwidth=1200&quot;,
+            &quot;created_at&quot;: null,
+            &quot;updated_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;This Book Loves You&quot;,
+            &quot;description&quot;: &quot;Given Book Description&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 645.05,
+            &quot;brand&quot;: &quot;PewDiePie&quot;,
+            &quot;category&quot;: &quot;book&quot;,
+            &quot;image&quot;: &quot;https://cdn.vox-cdn.com/thumbor/Djm0iYYHTvlevZ-M9tSoD7DChdk=/124x0:1474x900/1400x1050/filters:focal(124x0:1474x900):format(png)/cdn.vox-cdn.com/uploads/chorus_image/image/46524702/pewdiepie-this-book-loves-you_1600.0.0.png?&amp;imwidth=1200&quot;,
+            &quot;created_at&quot;: null,
+            &quot;updated_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;title&quot;: &quot;POCO F3&quot;,
+            &quot;description&quot;: &quot;Given Device Description&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 18640,
+            &quot;brand&quot;: &quot;POCO&quot;,
+            &quot;category&quot;: &quot;electronic device&quot;,
+            &quot;image&quot;: &quot;https://www.pinoytechnoguide.com/wp-content/uploads/2021/03/POCO-F3.jpg?&amp;imwidth=1200&quot;,
+            &quot;created_at&quot;: null,
+            &quot;updated_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;title&quot;: &quot;tenetur&quot;,
+            &quot;description&quot;: &quot;enim&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 415.2,
+            &quot;brand&quot;: &quot;repudiandae&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff44?text=product+aspernatur&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;title&quot;: &quot;aliquid&quot;,
+            &quot;description&quot;: &quot;corporis&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 281.6,
+            &quot;brand&quot;: &quot;ullam&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006611?text=product+corrupti&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;neque&quot;,
+            &quot;description&quot;: &quot;minus&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 339,
+            &quot;brand&quot;: &quot;aut&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff88?text=product+et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;incidunt&quot;,
+            &quot;description&quot;: &quot;voluptatum&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 309.8,
+            &quot;brand&quot;: &quot;rerum&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aaee?text=product+corporis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;et&quot;,
+            &quot;description&quot;: &quot;vel&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 434,
+            &quot;brand&quot;: &quot;harum&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa00?text=product+veniam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;animi&quot;,
+            &quot;description&quot;: &quot;et&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 402.5,
+            &quot;brand&quot;: &quot;cupiditate&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/005544?text=product+dolores&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;molestias&quot;,
+            &quot;description&quot;: &quot;a&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 263.2,
+            &quot;brand&quot;: &quot;sunt&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009977?text=product+qui&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;title&quot;: &quot;et&quot;,
+            &quot;description&quot;: &quot;nisi&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 295.2,
+            &quot;brand&quot;: &quot;veniam&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ddcc?text=product+minima&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;title&quot;: &quot;exercitationem&quot;,
+            &quot;description&quot;: &quot;illum&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 482.6,
+            &quot;brand&quot;: &quot;omnis&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc22?text=product+sed&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;title&quot;: &quot;est&quot;,
+            &quot;description&quot;: &quot;nihil&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 219,
+            &quot;brand&quot;: &quot;laboriosam&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002211?text=product+esse&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;title&quot;: &quot;consequatur&quot;,
+            &quot;description&quot;: &quot;hic&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 271.9,
+            &quot;brand&quot;: &quot;autem&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0066ff?text=product+ducimus&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;title&quot;: &quot;incidunt&quot;,
+            &quot;description&quot;: &quot;et&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 438.9,
+            &quot;brand&quot;: &quot;eum&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008899?text=product+impedit&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 16,
+            &quot;title&quot;: &quot;qui&quot;,
+            &quot;description&quot;: &quot;dolorem&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 211.2,
+            &quot;brand&quot;: &quot;in&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007711?text=product+nihil&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 17,
+            &quot;title&quot;: &quot;odit&quot;,
+            &quot;description&quot;: &quot;qui&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 420.2,
+            &quot;brand&quot;: &quot;adipisci&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002266?text=product+quis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 18,
+            &quot;title&quot;: &quot;et&quot;,
+            &quot;description&quot;: &quot;consectetur&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 218.3,
+            &quot;brand&quot;: &quot;nihil&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002222?text=product+nemo&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 19,
+            &quot;title&quot;: &quot;dolorem&quot;,
+            &quot;description&quot;: &quot;sapiente&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 447.5,
+            &quot;brand&quot;: &quot;id&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bbaa?text=product+id&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 20,
+            &quot;title&quot;: &quot;reprehenderit&quot;,
+            &quot;description&quot;: &quot;molestiae&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 499,
+            &quot;brand&quot;: &quot;quod&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055ee?text=product+dolores&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 21,
+            &quot;title&quot;: &quot;sed&quot;,
+            &quot;description&quot;: &quot;quis&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 463.3,
+            &quot;brand&quot;: &quot;beatae&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003377?text=product+minima&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 22,
+            &quot;title&quot;: &quot;ipsa&quot;,
+            &quot;description&quot;: &quot;voluptas&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 416.5,
+            &quot;brand&quot;: &quot;iusto&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055aa?text=product+quis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 23,
+            &quot;title&quot;: &quot;dolore&quot;,
+            &quot;description&quot;: &quot;incidunt&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 306.5,
+            &quot;brand&quot;: &quot;quae&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0077bb?text=product+a&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 24,
+            &quot;title&quot;: &quot;dolores&quot;,
+            &quot;description&quot;: &quot;nihil&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 297.7,
+            &quot;brand&quot;: &quot;officia&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/004433?text=product+enim&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;title&quot;: &quot;quam&quot;,
+            &quot;description&quot;: &quot;dolores&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 252.2,
+            &quot;brand&quot;: &quot;inventore&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/004477?text=product+alias&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 26,
+            &quot;title&quot;: &quot;ut&quot;,
+            &quot;description&quot;: &quot;earum&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 416.8,
+            &quot;brand&quot;: &quot;rerum&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001111?text=product+mollitia&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 27,
+            &quot;title&quot;: &quot;molestiae&quot;,
+            &quot;description&quot;: &quot;sit&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 310.5,
+            &quot;brand&quot;: &quot;possimus&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006644?text=product+quis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 28,
+            &quot;title&quot;: &quot;mollitia&quot;,
+            &quot;description&quot;: &quot;id&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 359.5,
+            &quot;brand&quot;: &quot;eius&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff55?text=product+laboriosam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 29,
+            &quot;title&quot;: &quot;quis&quot;,
+            &quot;description&quot;: &quot;ratione&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 217.4,
+            &quot;brand&quot;: &quot;sit&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002222?text=product+voluptas&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 30,
+            &quot;title&quot;: &quot;est&quot;,
+            &quot;description&quot;: &quot;aperiam&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 480.3,
+            &quot;brand&quot;: &quot;accusamus&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0022aa?text=product+ipsa&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 31,
+            &quot;title&quot;: &quot;nam&quot;,
+            &quot;description&quot;: &quot;mollitia&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 410.6,
+            &quot;brand&quot;: &quot;sunt&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0000ee?text=product+aliquam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 32,
+            &quot;title&quot;: &quot;tempora&quot;,
+            &quot;description&quot;: &quot;quia&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 348.3,
+            &quot;brand&quot;: &quot;mollitia&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00eeaa?text=product+ipsum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 33,
+            &quot;title&quot;: &quot;ipsa&quot;,
+            &quot;description&quot;: &quot;qui&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 350.1,
+            &quot;brand&quot;: &quot;iste&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001133?text=product+aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 34,
+            &quot;title&quot;: &quot;laudantium&quot;,
+            &quot;description&quot;: &quot;odio&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 297.5,
+            &quot;brand&quot;: &quot;nulla&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044bb?text=product+omnis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 35,
+            &quot;title&quot;: &quot;culpa&quot;,
+            &quot;description&quot;: &quot;quam&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 222.7,
+            &quot;brand&quot;: &quot;beatae&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee00?text=product+voluptatem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 36,
+            &quot;title&quot;: &quot;in&quot;,
+            &quot;description&quot;: &quot;porro&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 419.2,
+            &quot;brand&quot;: &quot;optio&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/005555?text=product+aliquam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 37,
+            &quot;title&quot;: &quot;et&quot;,
+            &quot;description&quot;: &quot;qui&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 463.8,
+            &quot;brand&quot;: &quot;rem&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff44?text=product+accusantium&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 38,
+            &quot;title&quot;: &quot;necessitatibus&quot;,
+            &quot;description&quot;: &quot;aut&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 381.8,
+            &quot;brand&quot;: &quot;maxime&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0033cc?text=product+asperiores&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 39,
+            &quot;title&quot;: &quot;dolore&quot;,
+            &quot;description&quot;: &quot;error&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 242.6,
+            &quot;brand&quot;: &quot;et&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002299?text=product+quia&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 40,
+            &quot;title&quot;: &quot;reprehenderit&quot;,
+            &quot;description&quot;: &quot;possimus&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 464,
+            &quot;brand&quot;: &quot;pariatur&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0044aa?text=product+facere&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 41,
+            &quot;title&quot;: &quot;dolores&quot;,
+            &quot;description&quot;: &quot;sunt&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 221.6,
+            &quot;brand&quot;: &quot;dolor&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003355?text=product+ipsum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 42,
+            &quot;title&quot;: &quot;ut&quot;,
+            &quot;description&quot;: &quot;commodi&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 281.7,
+            &quot;brand&quot;: &quot;at&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0011ee?text=product+qui&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 43,
+            &quot;title&quot;: &quot;modi&quot;,
+            &quot;description&quot;: &quot;ut&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 428.2,
+            &quot;brand&quot;: &quot;inventore&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc44?text=product+ullam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 44,
+            &quot;title&quot;: &quot;rem&quot;,
+            &quot;description&quot;: &quot;qui&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 326.8,
+            &quot;brand&quot;: &quot;est&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa00?text=product+qui&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 45,
+            &quot;title&quot;: &quot;dicta&quot;,
+            &quot;description&quot;: &quot;atque&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 259.8,
+            &quot;brand&quot;: &quot;quae&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006666?text=product+et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 46,
+            &quot;title&quot;: &quot;ea&quot;,
+            &quot;description&quot;: &quot;voluptatibus&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 422.1,
+            &quot;brand&quot;: &quot;maiores&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0011aa?text=product+enim&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 47,
+            &quot;title&quot;: &quot;expedita&quot;,
+            &quot;description&quot;: &quot;assumenda&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 226.6,
+            &quot;brand&quot;: &quot;quibusdam&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003344?text=product+nemo&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 48,
+            &quot;title&quot;: &quot;aut&quot;,
+            &quot;description&quot;: &quot;et&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 286.4,
+            &quot;brand&quot;: &quot;voluptas&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee00?text=product+provident&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 49,
+            &quot;title&quot;: &quot;qui&quot;,
+            &quot;description&quot;: &quot;possimus&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 389,
+            &quot;brand&quot;: &quot;odit&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa66?text=product+sunt&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 50,
+            &quot;title&quot;: &quot;dignissimos&quot;,
+            &quot;description&quot;: &quot;non&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 417.4,
+            &quot;brand&quot;: &quot;recusandae&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee66?text=product+quaerat&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 51,
+            &quot;title&quot;: &quot;ad&quot;,
+            &quot;description&quot;: &quot;excepturi&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 242,
+            &quot;brand&quot;: &quot;dolorem&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008888?text=product+voluptates&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 52,
+            &quot;title&quot;: &quot;omnis&quot;,
+            &quot;description&quot;: &quot;error&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 206,
+            &quot;brand&quot;: &quot;quaerat&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008888?text=product+rem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 53,
+            &quot;title&quot;: &quot;natus&quot;,
+            &quot;description&quot;: &quot;reprehenderit&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 426.8,
+            &quot;brand&quot;: &quot;rerum&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ccbb?text=product+enim&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 54,
+            &quot;title&quot;: &quot;non&quot;,
+            &quot;description&quot;: &quot;incidunt&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 345.7,
+            &quot;brand&quot;: &quot;dolor&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00eeff?text=product+veritatis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 55,
+            &quot;title&quot;: &quot;minus&quot;,
+            &quot;description&quot;: &quot;iste&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 449.6,
+            &quot;brand&quot;: &quot;harum&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee22?text=product+veritatis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 56,
+            &quot;title&quot;: &quot;sed&quot;,
+            &quot;description&quot;: &quot;sed&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 321.9,
+            &quot;brand&quot;: &quot;sit&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa11?text=product+ut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 57,
+            &quot;title&quot;: &quot;fugit&quot;,
+            &quot;description&quot;: &quot;asperiores&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 360.1,
+            &quot;brand&quot;: &quot;quaerat&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ffbb?text=product+facere&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 58,
+            &quot;title&quot;: &quot;ratione&quot;,
+            &quot;description&quot;: &quot;aut&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 487.4,
+            &quot;brand&quot;: &quot;sit&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff44?text=product+dolor&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 59,
+            &quot;title&quot;: &quot;velit&quot;,
+            &quot;description&quot;: &quot;consequatur&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 376.1,
+            &quot;brand&quot;: &quot;autem&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0033ee?text=product+debitis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 60,
+            &quot;title&quot;: &quot;corrupti&quot;,
+            &quot;description&quot;: &quot;enim&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 214.1,
+            &quot;brand&quot;: &quot;ipsum&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0066ee?text=product+accusantium&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 61,
+            &quot;title&quot;: &quot;consequuntur&quot;,
+            &quot;description&quot;: &quot;eveniet&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 483.5,
+            &quot;brand&quot;: &quot;quisquam&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bbaa?text=product+saepe&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 62,
+            &quot;title&quot;: &quot;numquam&quot;,
+            &quot;description&quot;: &quot;nisi&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 414.5,
+            &quot;brand&quot;: &quot;corporis&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009988?text=product+quaerat&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 63,
+            &quot;title&quot;: &quot;nisi&quot;,
+            &quot;description&quot;: &quot;perspiciatis&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 237.8,
+            &quot;brand&quot;: &quot;hic&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001166?text=product+ut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 64,
+            &quot;title&quot;: &quot;eos&quot;,
+            &quot;description&quot;: &quot;deleniti&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 493.2,
+            &quot;brand&quot;: &quot;voluptates&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/000033?text=product+et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 65,
+            &quot;title&quot;: &quot;ad&quot;,
+            &quot;description&quot;: &quot;et&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 284.3,
+            &quot;brand&quot;: &quot;dolores&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc66?text=product+sapiente&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 66,
+            &quot;title&quot;: &quot;unde&quot;,
+            &quot;description&quot;: &quot;pariatur&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 392.3,
+            &quot;brand&quot;: &quot;blanditiis&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee99?text=product+vel&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 67,
+            &quot;title&quot;: &quot;quos&quot;,
+            &quot;description&quot;: &quot;consequatur&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 496.1,
+            &quot;brand&quot;: &quot;eveniet&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/004477?text=product+numquam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 68,
+            &quot;title&quot;: &quot;ducimus&quot;,
+            &quot;description&quot;: &quot;voluptatem&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 310.4,
+            &quot;brand&quot;: &quot;illo&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/003388?text=product+non&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 69,
+            &quot;title&quot;: &quot;veniam&quot;,
+            &quot;description&quot;: &quot;dolor&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 248.6,
+            &quot;brand&quot;: &quot;corrupti&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0077ee?text=product+dignissimos&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 70,
+            &quot;title&quot;: &quot;enim&quot;,
+            &quot;description&quot;: &quot;praesentium&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 499.8,
+            &quot;brand&quot;: &quot;molestiae&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00dd22?text=product+eligendi&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 71,
+            &quot;title&quot;: &quot;molestias&quot;,
+            &quot;description&quot;: &quot;corrupti&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 235.4,
+            &quot;brand&quot;: &quot;adipisci&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0088cc?text=product+dignissimos&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 72,
+            &quot;title&quot;: &quot;consectetur&quot;,
+            &quot;description&quot;: &quot;neque&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 431.1,
+            &quot;brand&quot;: &quot;consequatur&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa77?text=product+voluptas&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 73,
+            &quot;title&quot;: &quot;iusto&quot;,
+            &quot;description&quot;: &quot;aspernatur&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 251.2,
+            &quot;brand&quot;: &quot;assumenda&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc00?text=product+vel&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 74,
+            &quot;title&quot;: &quot;omnis&quot;,
+            &quot;description&quot;: &quot;incidunt&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 422.8,
+            &quot;brand&quot;: &quot;odit&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0022cc?text=product+qui&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 75,
+            &quot;title&quot;: &quot;repellat&quot;,
+            &quot;description&quot;: &quot;dolor&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 261.9,
+            &quot;brand&quot;: &quot;inventore&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009922?text=product+numquam&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 76,
+            &quot;title&quot;: &quot;iure&quot;,
+            &quot;description&quot;: &quot;earum&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 235.2,
+            &quot;brand&quot;: &quot;ratione&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aa66?text=product+recusandae&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 77,
+            &quot;title&quot;: &quot;et&quot;,
+            &quot;description&quot;: &quot;expedita&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 482.6,
+            &quot;brand&quot;: &quot;eius&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bbee?text=product+voluptates&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 78,
+            &quot;title&quot;: &quot;nulla&quot;,
+            &quot;description&quot;: &quot;sequi&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 479.6,
+            &quot;brand&quot;: &quot;ullam&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00bbdd?text=product+atque&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 79,
+            &quot;title&quot;: &quot;ea&quot;,
+            &quot;description&quot;: &quot;debitis&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 417.4,
+            &quot;brand&quot;: &quot;quibusdam&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006622?text=product+quia&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 80,
+            &quot;title&quot;: &quot;voluptatem&quot;,
+            &quot;description&quot;: &quot;qui&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 461.8,
+            &quot;brand&quot;: &quot;et&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/000033?text=product+eaque&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 81,
+            &quot;title&quot;: &quot;odio&quot;,
+            &quot;description&quot;: &quot;porro&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 408.8,
+            &quot;brand&quot;: &quot;consequuntur&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ddaa?text=product+omnis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 82,
+            &quot;title&quot;: &quot;dicta&quot;,
+            &quot;description&quot;: &quot;modi&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 264.7,
+            &quot;brand&quot;: &quot;et&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/004455?text=product+esse&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 83,
+            &quot;title&quot;: &quot;facere&quot;,
+            &quot;description&quot;: &quot;rerum&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 322.1,
+            &quot;brand&quot;: &quot;libero&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007700?text=product+voluptatem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 84,
+            &quot;title&quot;: &quot;in&quot;,
+            &quot;description&quot;: &quot;at&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 337.1,
+            &quot;brand&quot;: &quot;recusandae&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0099ee?text=product+mollitia&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 85,
+            &quot;title&quot;: &quot;ducimus&quot;,
+            &quot;description&quot;: &quot;vero&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 306.7,
+            &quot;brand&quot;: &quot;sit&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ddcc?text=product+saepe&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 86,
+            &quot;title&quot;: &quot;sint&quot;,
+            &quot;description&quot;: &quot;quidem&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 398.7,
+            &quot;brand&quot;: &quot;nulla&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/006622?text=product+ut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 87,
+            &quot;title&quot;: &quot;excepturi&quot;,
+            &quot;description&quot;: &quot;quidem&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 325.7,
+            &quot;brand&quot;: &quot;deleniti&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/004488?text=product+voluptate&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 88,
+            &quot;title&quot;: &quot;itaque&quot;,
+            &quot;description&quot;: &quot;vero&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 211.3,
+            &quot;brand&quot;: &quot;velit&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007711?text=product+dolorem&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 89,
+            &quot;title&quot;: &quot;expedita&quot;,
+            &quot;description&quot;: &quot;recusandae&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 370,
+            &quot;brand&quot;: &quot;enim&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ddbb?text=product+aut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 90,
+            &quot;title&quot;: &quot;saepe&quot;,
+            &quot;description&quot;: &quot;quasi&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 355.1,
+            &quot;brand&quot;: &quot;eaque&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/008844?text=product+enim&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 91,
+            &quot;title&quot;: &quot;nesciunt&quot;,
+            &quot;description&quot;: &quot;facilis&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 373.9,
+            &quot;brand&quot;: &quot;repudiandae&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0000aa?text=product+officiis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 92,
+            &quot;title&quot;: &quot;aut&quot;,
+            &quot;description&quot;: &quot;sint&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 294,
+            &quot;brand&quot;: &quot;minus&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/001111?text=product+nesciunt&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 93,
+            &quot;title&quot;: &quot;magni&quot;,
+            &quot;description&quot;: &quot;fuga&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 368,
+            &quot;brand&quot;: &quot;doloribus&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee99?text=product+aliquid&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 94,
+            &quot;title&quot;: &quot;veniam&quot;,
+            &quot;description&quot;: &quot;repellat&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 368.2,
+            &quot;brand&quot;: &quot;ut&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055ee?text=product+recusandae&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 95,
+            &quot;title&quot;: &quot;dignissimos&quot;,
+            &quot;description&quot;: &quot;ut&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 431.7,
+            &quot;brand&quot;: &quot;occaecati&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0022cc?text=product+et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 96,
+            &quot;title&quot;: &quot;fugit&quot;,
+            &quot;description&quot;: &quot;consequatur&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 301,
+            &quot;brand&quot;: &quot;blanditiis&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/000088?text=product+sint&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 97,
+            &quot;title&quot;: &quot;ut&quot;,
+            &quot;description&quot;: &quot;ut&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 233.8,
+            &quot;brand&quot;: &quot;iste&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002200?text=product+rerum&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 98,
+            &quot;title&quot;: &quot;voluptas&quot;,
+            &quot;description&quot;: &quot;qui&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 420.5,
+            &quot;brand&quot;: &quot;quisquam&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009933?text=product+corrupti&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 99,
+            &quot;title&quot;: &quot;laboriosam&quot;,
+            &quot;description&quot;: &quot;saepe&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 467.8,
+            &quot;brand&quot;: &quot;excepturi&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee22?text=product+ut&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 100,
+            &quot;title&quot;: &quot;at&quot;,
+            &quot;description&quot;: &quot;unde&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 290.9,
+            &quot;brand&quot;: &quot;odit&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00cc88?text=product+reiciendis&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 101,
+            &quot;title&quot;: &quot;consectetur&quot;,
+            &quot;description&quot;: &quot;tempore&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 233.3,
+            &quot;brand&quot;: &quot;laborum&quot;,
+            &quot;category&quot;: &quot;sports&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/009933?text=product+molestiae&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 102,
+            &quot;title&quot;: &quot;quis&quot;,
+            &quot;description&quot;: &quot;dicta&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 437.4,
+            &quot;brand&quot;: &quot;et&quot;,
+            &quot;category&quot;: &quot;health&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00eecc?text=product+repellendus&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 103,
+            &quot;title&quot;: &quot;veniam&quot;,
+            &quot;description&quot;: &quot;sint&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 470.2,
+            &quot;brand&quot;: &quot;odio&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff55?text=product+quia&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products"></code></pre>
+</span>
+<span id="execution-error-GETapi-products" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products"></code></pre>
+</span>
+<form id="form-GETapi-products" data-method="GET"
+      data-path="api/products"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products"
+                    onclick="tryItOut('GETapi-products');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products"
+                    onclick="cancelTryOut('GETapi-products');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products-search--keywords-">GET api/products/search/{keywords}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-search--keywords-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/products/search/neque" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/search/neque"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-search--keywords-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 6,
+            &quot;title&quot;: &quot;neque&quot;,
+            &quot;description&quot;: &quot;minus&quot;,
+            &quot;currency&quot;: &quot;PHP&quot;,
+            &quot;price&quot;: 339,
+            &quot;brand&quot;: &quot;aut&quot;,
+            &quot;category&quot;: &quot;apparel&quot;,
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ff88?text=product+et&quot;,
+            &quot;created_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-10-12T12:14:20.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-search--keywords-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-search--keywords-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-search--keywords-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-search--keywords-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-search--keywords-"></code></pre>
+</span>
+<form id="form-GETapi-products-search--keywords-" data-method="GET"
+      data-path="api/products/search/{keywords}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-search--keywords-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-search--keywords-"
+                    onclick="tryItOut('GETapi-products-search--keywords-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-search--keywords-"
+                    onclick="cancelTryOut('GETapi-products-search--keywords-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-search--keywords-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/search/{keywords}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>keywords</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="keywords"
+               data-endpoint="GETapi-products-search--keywords-"
+               value="neque"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products-categories">GET api/products/categories</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-categories">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/products/categories" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/categories"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-categories">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;category&quot;: &quot;apparel&quot;
+        },
+        {
+            &quot;category&quot;: &quot;book&quot;
+        },
+        {
+            &quot;category&quot;: &quot;electronic device&quot;
+        },
+        {
+            &quot;category&quot;: &quot;sports&quot;
+        },
+        {
+            &quot;category&quot;: &quot;health&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-categories" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-categories"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-categories"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-categories"></code></pre>
+</span>
+<form id="form-GETapi-products-categories" data-method="GET"
+      data-path="api/products/categories"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-categories', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-categories"
+                    onclick="tryItOut('GETapi-products-categories');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-categories"
+                    onclick="cancelTryOut('GETapi-products-categories');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-categories" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/categories</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products-category--category_name-">GET api/products/category/{category_name}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-category--category_name-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/products/category/voluptatem" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/category/voluptatem"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-category--category_name-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 56
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-category--category_name-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-category--category_name-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-category--category_name-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-category--category_name-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-category--category_name-"></code></pre>
+</span>
+<form id="form-GETapi-products-category--category_name-" data-method="GET"
+      data-path="api/products/category/{category_name}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-category--category_name-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-category--category_name-"
+                    onclick="tryItOut('GETapi-products-category--category_name-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-category--category_name-"
+                    onclick="cancelTryOut('GETapi-products-category--category_name-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-category--category_name-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/category/{category_name}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>category_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category_name"
+               data-endpoint="GETapi-products-category--category_name-"
+               value="voluptatem"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-products">POST api/products</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-products">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/products" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"molestiae\",
+    \"description\": \"autem\",
+    \"currency\": \"dolores\",
+    \"price\": \"qui\",
+    \"brand\": \"quo\",
+    \"category\": \"molestiae\",
+    \"image\": \"dolorem\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "molestiae",
+    "description": "autem",
+    "currency": "dolores",
+    "price": "qui",
+    "brand": "quo",
+    "category": "molestiae",
+    "image": "dolorem"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-products">
+</span>
+<span id="execution-results-POSTapi-products" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-products"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-products"></code></pre>
+</span>
+<span id="execution-error-POSTapi-products" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-products"></code></pre>
+</span>
+<form id="form-POSTapi-products" data-method="POST"
+      data-path="api/products"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-products', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-products"
+                    onclick="tryItOut('POSTapi-products');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-products"
+                    onclick="cancelTryOut('POSTapi-products');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-products" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/products</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTapi-products"
+               value="molestiae"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="POSTapi-products"
+               value="autem"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>currency</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="currency"
+               data-endpoint="POSTapi-products"
+               value="dolores"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>price</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="price"
+               data-endpoint="POSTapi-products"
+               value="qui"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="brand"
+               data-endpoint="POSTapi-products"
+               value="quo"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category"
+               data-endpoint="POSTapi-products"
+               value="molestiae"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="image"
+               data-endpoint="POSTapi-products"
+               value="dolorem"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-PUTapi-products--product_id-">PUT api/products/{product_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-products--product_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/products/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"cumque\",
+    \"description\": \"rerum\",
+    \"currency\": \"et\",
+    \"price\": \"placeat\",
+    \"brand\": \"labore\",
+    \"category\": \"recusandae\",
+    \"image\": \"aliquam\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "cumque",
+    "description": "rerum",
+    "currency": "et",
+    "price": "placeat",
+    "brand": "labore",
+    "category": "recusandae",
+    "image": "aliquam"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-products--product_id-">
+</span>
+<span id="execution-results-PUTapi-products--product_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-products--product_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-products--product_id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-products--product_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-products--product_id-"></code></pre>
+</span>
+<form id="form-PUTapi-products--product_id-" data-method="PUT"
+      data-path="api/products/{product_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-products--product_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-products--product_id-"
+                    onclick="tryItOut('PUTapi-products--product_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-products--product_id-"
+                    onclick="cancelTryOut('PUTapi-products--product_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-products--product_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/products/{product_id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="PUTapi-products--product_id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="PUTapi-products--product_id-"
+               value="cumque"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="PUTapi-products--product_id-"
+               value="rerum"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>currency</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="currency"
+               data-endpoint="PUTapi-products--product_id-"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>price</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="price"
+               data-endpoint="PUTapi-products--product_id-"
+               value="placeat"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="brand"
+               data-endpoint="PUTapi-products--product_id-"
+               value="labore"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="category"
+               data-endpoint="PUTapi-products--product_id-"
+               value="recusandae"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="image"
+               data-endpoint="PUTapi-products--product_id-"
+               value="aliquam"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-products--product_id-">DELETE api/products/{product_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-products--product_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/products/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-products--product_id-">
+</span>
+<span id="execution-results-DELETEapi-products--product_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-products--product_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-products--product_id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-products--product_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-products--product_id-"></code></pre>
+</span>
+<form id="form-DELETEapi-products--product_id-" data-method="DELETE"
+      data-path="api/products/{product_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-products--product_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-products--product_id-"
+                    onclick="tryItOut('DELETEapi-products--product_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-products--product_id-"
+                    onclick="cancelTryOut('DELETEapi-products--product_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-products--product_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/products/{product_id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="DELETEapi-products--product_id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-products--product_id-">GET api/products/{product_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products--product_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/products/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products--product_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;products&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Jacket&quot;,
+        &quot;description&quot;: &quot;Given Jacket Description&quot;,
+        &quot;currency&quot;: &quot;PHP&quot;,
+        &quot;price&quot;: 1234.56,
+        &quot;brand&quot;: &quot;KuyaWill&quot;,
+        &quot;category&quot;: &quot;apparel&quot;,
+        &quot;image&quot;: &quot;https://netstorage-kami.akamaized.net/images/0fgjhs1shmj74jpi4g.jpg?&amp;imwidth=1200&quot;,
+        &quot;created_at&quot;: null,
+        &quot;updated_at&quot;: null
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products--product_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products--product_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products--product_id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-products--product_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products--product_id-"></code></pre>
+</span>
+<form id="form-GETapi-products--product_id-" data-method="GET"
+      data-path="api/products/{product_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--product_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products--product_id-"
+                    onclick="tryItOut('GETapi-products--product_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products--product_id-"
+                    onclick="cancelTryOut('GETapi-products--product_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products--product_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/{product_id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="product_id"
+               data-endpoint="GETapi-products--product_id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product.</p>
+            </p>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

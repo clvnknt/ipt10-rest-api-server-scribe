@@ -1,0 +1,486 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "34633365-b032-4769-bccf-b7a5176d6154",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":[{\"id\":1,\"title\":\"Jacket\",\"description\":\"Given Jacket Description\",\"currency\":\"PHP\",\"price\":1234.56,\"brand\":\"KuyaWill\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/netstorage-kami.akamaized.net\\\/images\\\/0fgjhs1shmj74jpi4g.jpg?&imwidth=1200\",\"created_at\":null,\"updated_at\":null},{\"id\":2,\"title\":\"This Book Loves You\",\"description\":\"Given Book Description\",\"currency\":\"PHP\",\"price\":645.05,\"brand\":\"PewDiePie\",\"category\":\"book\",\"image\":\"https:\\\/\\\/cdn.vox-cdn.com\\\/thumbor\\\/Djm0iYYHTvlevZ-M9tSoD7DChdk=\\\/124x0:1474x900\\\/1400x1050\\\/filters:focal(124x0:1474x900):format(png)\\\/cdn.vox-cdn.com\\\/uploads\\\/chorus_image\\\/image\\\/46524702\\\/pewdiepie-this-book-loves-you_1600.0.0.png?&imwidth=1200\",\"created_at\":null,\"updated_at\":null},{\"id\":3,\"title\":\"POCO F3\",\"description\":\"Given Device Description\",\"currency\":\"PHP\",\"price\":18640,\"brand\":\"POCO\",\"category\":\"electronic device\",\"image\":\"https:\\\/\\\/www.pinoytechnoguide.com\\\/wp-content\\\/uploads\\\/2021\\\/03\\\/POCO-F3.jpg?&imwidth=1200\",\"created_at\":null,\"updated_at\":null},{\"id\":4,\"title\":\"tenetur\",\"description\":\"enim\",\"currency\":\"PHP\",\"price\":415.2,\"brand\":\"repudiandae\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff44?text=product+aspernatur\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":5,\"title\":\"aliquid\",\"description\":\"corporis\",\"currency\":\"PHP\",\"price\":281.6,\"brand\":\"ullam\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006611?text=product+corrupti\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":6,\"title\":\"neque\",\"description\":\"minus\",\"currency\":\"PHP\",\"price\":339,\"brand\":\"aut\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff88?text=product+et\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":7,\"title\":\"incidunt\",\"description\":\"voluptatum\",\"currency\":\"PHP\",\"price\":309.8,\"brand\":\"rerum\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aaee?text=product+corporis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":8,\"title\":\"et\",\"description\":\"vel\",\"currency\":\"PHP\",\"price\":434,\"brand\":\"harum\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa00?text=product+veniam\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":9,\"title\":\"animi\",\"description\":\"et\",\"currency\":\"PHP\",\"price\":402.5,\"brand\":\"cupiditate\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/005544?text=product+dolores\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":10,\"title\":\"molestias\",\"description\":\"a\",\"currency\":\"PHP\",\"price\":263.2,\"brand\":\"sunt\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009977?text=product+qui\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":11,\"title\":\"et\",\"description\":\"nisi\",\"currency\":\"PHP\",\"price\":295.2,\"brand\":\"veniam\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ddcc?text=product+minima\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":12,\"title\":\"exercitationem\",\"description\":\"illum\",\"currency\":\"PHP\",\"price\":482.6,\"brand\":\"omnis\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc22?text=product+sed\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":13,\"title\":\"est\",\"description\":\"nihil\",\"currency\":\"PHP\",\"price\":219,\"brand\":\"laboriosam\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002211?text=product+esse\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":14,\"title\":\"consequatur\",\"description\":\"hic\",\"currency\":\"PHP\",\"price\":271.9,\"brand\":\"autem\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0066ff?text=product+ducimus\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":15,\"title\":\"incidunt\",\"description\":\"et\",\"currency\":\"PHP\",\"price\":438.9,\"brand\":\"eum\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008899?text=product+impedit\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":16,\"title\":\"qui\",\"description\":\"dolorem\",\"currency\":\"PHP\",\"price\":211.2,\"brand\":\"in\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007711?text=product+nihil\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":17,\"title\":\"odit\",\"description\":\"qui\",\"currency\":\"PHP\",\"price\":420.2,\"brand\":\"adipisci\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002266?text=product+quis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":18,\"title\":\"et\",\"description\":\"consectetur\",\"currency\":\"PHP\",\"price\":218.3,\"brand\":\"nihil\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002222?text=product+nemo\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":19,\"title\":\"dolorem\",\"description\":\"sapiente\",\"currency\":\"PHP\",\"price\":447.5,\"brand\":\"id\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bbaa?text=product+id\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":20,\"title\":\"reprehenderit\",\"description\":\"molestiae\",\"currency\":\"PHP\",\"price\":499,\"brand\":\"quod\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0055ee?text=product+dolores\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":21,\"title\":\"sed\",\"description\":\"quis\",\"currency\":\"PHP\",\"price\":463.3,\"brand\":\"beatae\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003377?text=product+minima\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":22,\"title\":\"ipsa\",\"description\":\"voluptas\",\"currency\":\"PHP\",\"price\":416.5,\"brand\":\"iusto\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0055aa?text=product+quis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":23,\"title\":\"dolore\",\"description\":\"incidunt\",\"currency\":\"PHP\",\"price\":306.5,\"brand\":\"quae\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0077bb?text=product+a\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":24,\"title\":\"dolores\",\"description\":\"nihil\",\"currency\":\"PHP\",\"price\":297.7,\"brand\":\"officia\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/004433?text=product+enim\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":25,\"title\":\"quam\",\"description\":\"dolores\",\"currency\":\"PHP\",\"price\":252.2,\"brand\":\"inventore\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/004477?text=product+alias\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":26,\"title\":\"ut\",\"description\":\"earum\",\"currency\":\"PHP\",\"price\":416.8,\"brand\":\"rerum\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001111?text=product+mollitia\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":27,\"title\":\"molestiae\",\"description\":\"sit\",\"currency\":\"PHP\",\"price\":310.5,\"brand\":\"possimus\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006644?text=product+quis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":28,\"title\":\"mollitia\",\"description\":\"id\",\"currency\":\"PHP\",\"price\":359.5,\"brand\":\"eius\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff55?text=product+laboriosam\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":29,\"title\":\"quis\",\"description\":\"ratione\",\"currency\":\"PHP\",\"price\":217.4,\"brand\":\"sit\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002222?text=product+voluptas\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":30,\"title\":\"est\",\"description\":\"aperiam\",\"currency\":\"PHP\",\"price\":480.3,\"brand\":\"accusamus\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0022aa?text=product+ipsa\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":31,\"title\":\"nam\",\"description\":\"mollitia\",\"currency\":\"PHP\",\"price\":410.6,\"brand\":\"sunt\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0000ee?text=product+aliquam\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":32,\"title\":\"tempora\",\"description\":\"quia\",\"currency\":\"PHP\",\"price\":348.3,\"brand\":\"mollitia\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00eeaa?text=product+ipsum\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":33,\"title\":\"ipsa\",\"description\":\"qui\",\"currency\":\"PHP\",\"price\":350.1,\"brand\":\"iste\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001133?text=product+aut\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":34,\"title\":\"laudantium\",\"description\":\"odio\",\"currency\":\"PHP\",\"price\":297.5,\"brand\":\"nulla\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044bb?text=product+omnis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":35,\"title\":\"culpa\",\"description\":\"quam\",\"currency\":\"PHP\",\"price\":222.7,\"brand\":\"beatae\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee00?text=product+voluptatem\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":36,\"title\":\"in\",\"description\":\"porro\",\"currency\":\"PHP\",\"price\":419.2,\"brand\":\"optio\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/005555?text=product+aliquam\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":37,\"title\":\"et\",\"description\":\"qui\",\"currency\":\"PHP\",\"price\":463.8,\"brand\":\"rem\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff44?text=product+accusantium\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":38,\"title\":\"necessitatibus\",\"description\":\"aut\",\"currency\":\"PHP\",\"price\":381.8,\"brand\":\"maxime\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0033cc?text=product+asperiores\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":39,\"title\":\"dolore\",\"description\":\"error\",\"currency\":\"PHP\",\"price\":242.6,\"brand\":\"et\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002299?text=product+quia\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":40,\"title\":\"reprehenderit\",\"description\":\"possimus\",\"currency\":\"PHP\",\"price\":464,\"brand\":\"pariatur\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0044aa?text=product+facere\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":41,\"title\":\"dolores\",\"description\":\"sunt\",\"currency\":\"PHP\",\"price\":221.6,\"brand\":\"dolor\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003355?text=product+ipsum\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":42,\"title\":\"ut\",\"description\":\"commodi\",\"currency\":\"PHP\",\"price\":281.7,\"brand\":\"at\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0011ee?text=product+qui\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":43,\"title\":\"modi\",\"description\":\"ut\",\"currency\":\"PHP\",\"price\":428.2,\"brand\":\"inventore\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc44?text=product+ullam\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":44,\"title\":\"rem\",\"description\":\"qui\",\"currency\":\"PHP\",\"price\":326.8,\"brand\":\"est\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa00?text=product+qui\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":45,\"title\":\"dicta\",\"description\":\"atque\",\"currency\":\"PHP\",\"price\":259.8,\"brand\":\"quae\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006666?text=product+et\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":46,\"title\":\"ea\",\"description\":\"voluptatibus\",\"currency\":\"PHP\",\"price\":422.1,\"brand\":\"maiores\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0011aa?text=product+enim\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":47,\"title\":\"expedita\",\"description\":\"assumenda\",\"currency\":\"PHP\",\"price\":226.6,\"brand\":\"quibusdam\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003344?text=product+nemo\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":48,\"title\":\"aut\",\"description\":\"et\",\"currency\":\"PHP\",\"price\":286.4,\"brand\":\"voluptas\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee00?text=product+provident\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":49,\"title\":\"qui\",\"description\":\"possimus\",\"currency\":\"PHP\",\"price\":389,\"brand\":\"odit\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa66?text=product+sunt\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":50,\"title\":\"dignissimos\",\"description\":\"non\",\"currency\":\"PHP\",\"price\":417.4,\"brand\":\"recusandae\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee66?text=product+quaerat\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":51,\"title\":\"ad\",\"description\":\"excepturi\",\"currency\":\"PHP\",\"price\":242,\"brand\":\"dolorem\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008888?text=product+voluptates\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":52,\"title\":\"omnis\",\"description\":\"error\",\"currency\":\"PHP\",\"price\":206,\"brand\":\"quaerat\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008888?text=product+rem\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":53,\"title\":\"natus\",\"description\":\"reprehenderit\",\"currency\":\"PHP\",\"price\":426.8,\"brand\":\"rerum\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ccbb?text=product+enim\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":54,\"title\":\"non\",\"description\":\"incidunt\",\"currency\":\"PHP\",\"price\":345.7,\"brand\":\"dolor\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00eeff?text=product+veritatis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":55,\"title\":\"minus\",\"description\":\"iste\",\"currency\":\"PHP\",\"price\":449.6,\"brand\":\"harum\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee22?text=product+veritatis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":56,\"title\":\"sed\",\"description\":\"sed\",\"currency\":\"PHP\",\"price\":321.9,\"brand\":\"sit\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa11?text=product+ut\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":57,\"title\":\"fugit\",\"description\":\"asperiores\",\"currency\":\"PHP\",\"price\":360.1,\"brand\":\"quaerat\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ffbb?text=product+facere\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":58,\"title\":\"ratione\",\"description\":\"aut\",\"currency\":\"PHP\",\"price\":487.4,\"brand\":\"sit\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff44?text=product+dolor\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":59,\"title\":\"velit\",\"description\":\"consequatur\",\"currency\":\"PHP\",\"price\":376.1,\"brand\":\"autem\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0033ee?text=product+debitis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":60,\"title\":\"corrupti\",\"description\":\"enim\",\"currency\":\"PHP\",\"price\":214.1,\"brand\":\"ipsum\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0066ee?text=product+accusantium\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":61,\"title\":\"consequuntur\",\"description\":\"eveniet\",\"currency\":\"PHP\",\"price\":483.5,\"brand\":\"quisquam\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bbaa?text=product+saepe\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":62,\"title\":\"numquam\",\"description\":\"nisi\",\"currency\":\"PHP\",\"price\":414.5,\"brand\":\"corporis\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009988?text=product+quaerat\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":63,\"title\":\"nisi\",\"description\":\"perspiciatis\",\"currency\":\"PHP\",\"price\":237.8,\"brand\":\"hic\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001166?text=product+ut\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":64,\"title\":\"eos\",\"description\":\"deleniti\",\"currency\":\"PHP\",\"price\":493.2,\"brand\":\"voluptates\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/000033?text=product+et\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":65,\"title\":\"ad\",\"description\":\"et\",\"currency\":\"PHP\",\"price\":284.3,\"brand\":\"dolores\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc66?text=product+sapiente\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":66,\"title\":\"unde\",\"description\":\"pariatur\",\"currency\":\"PHP\",\"price\":392.3,\"brand\":\"blanditiis\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee99?text=product+vel\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":67,\"title\":\"quos\",\"description\":\"consequatur\",\"currency\":\"PHP\",\"price\":496.1,\"brand\":\"eveniet\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/004477?text=product+numquam\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":68,\"title\":\"ducimus\",\"description\":\"voluptatem\",\"currency\":\"PHP\",\"price\":310.4,\"brand\":\"illo\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/003388?text=product+non\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":69,\"title\":\"veniam\",\"description\":\"dolor\",\"currency\":\"PHP\",\"price\":248.6,\"brand\":\"corrupti\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0077ee?text=product+dignissimos\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":70,\"title\":\"enim\",\"description\":\"praesentium\",\"currency\":\"PHP\",\"price\":499.8,\"brand\":\"molestiae\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00dd22?text=product+eligendi\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":71,\"title\":\"molestias\",\"description\":\"corrupti\",\"currency\":\"PHP\",\"price\":235.4,\"brand\":\"adipisci\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0088cc?text=product+dignissimos\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":72,\"title\":\"consectetur\",\"description\":\"neque\",\"currency\":\"PHP\",\"price\":431.1,\"brand\":\"consequatur\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa77?text=product+voluptas\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":73,\"title\":\"iusto\",\"description\":\"aspernatur\",\"currency\":\"PHP\",\"price\":251.2,\"brand\":\"assumenda\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc00?text=product+vel\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":74,\"title\":\"omnis\",\"description\":\"incidunt\",\"currency\":\"PHP\",\"price\":422.8,\"brand\":\"odit\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0022cc?text=product+qui\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":75,\"title\":\"repellat\",\"description\":\"dolor\",\"currency\":\"PHP\",\"price\":261.9,\"brand\":\"inventore\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009922?text=product+numquam\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":76,\"title\":\"iure\",\"description\":\"earum\",\"currency\":\"PHP\",\"price\":235.2,\"brand\":\"ratione\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00aa66?text=product+recusandae\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":77,\"title\":\"et\",\"description\":\"expedita\",\"currency\":\"PHP\",\"price\":482.6,\"brand\":\"eius\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bbee?text=product+voluptates\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":78,\"title\":\"nulla\",\"description\":\"sequi\",\"currency\":\"PHP\",\"price\":479.6,\"brand\":\"ullam\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00bbdd?text=product+atque\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":79,\"title\":\"ea\",\"description\":\"debitis\",\"currency\":\"PHP\",\"price\":417.4,\"brand\":\"quibusdam\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006622?text=product+quia\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":80,\"title\":\"voluptatem\",\"description\":\"qui\",\"currency\":\"PHP\",\"price\":461.8,\"brand\":\"et\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/000033?text=product+eaque\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":81,\"title\":\"odio\",\"description\":\"porro\",\"currency\":\"PHP\",\"price\":408.8,\"brand\":\"consequuntur\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ddaa?text=product+omnis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":82,\"title\":\"dicta\",\"description\":\"modi\",\"currency\":\"PHP\",\"price\":264.7,\"brand\":\"et\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/004455?text=product+esse\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":83,\"title\":\"facere\",\"description\":\"rerum\",\"currency\":\"PHP\",\"price\":322.1,\"brand\":\"libero\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007700?text=product+voluptatem\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":84,\"title\":\"in\",\"description\":\"at\",\"currency\":\"PHP\",\"price\":337.1,\"brand\":\"recusandae\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0099ee?text=product+mollitia\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":85,\"title\":\"ducimus\",\"description\":\"vero\",\"currency\":\"PHP\",\"price\":306.7,\"brand\":\"sit\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ddcc?text=product+saepe\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":86,\"title\":\"sint\",\"description\":\"quidem\",\"currency\":\"PHP\",\"price\":398.7,\"brand\":\"nulla\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/006622?text=product+ut\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":87,\"title\":\"excepturi\",\"description\":\"quidem\",\"currency\":\"PHP\",\"price\":325.7,\"brand\":\"deleniti\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/004488?text=product+voluptate\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":88,\"title\":\"itaque\",\"description\":\"vero\",\"currency\":\"PHP\",\"price\":211.3,\"brand\":\"velit\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/007711?text=product+dolorem\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":89,\"title\":\"expedita\",\"description\":\"recusandae\",\"currency\":\"PHP\",\"price\":370,\"brand\":\"enim\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ddbb?text=product+aut\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":90,\"title\":\"saepe\",\"description\":\"quasi\",\"currency\":\"PHP\",\"price\":355.1,\"brand\":\"eaque\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/008844?text=product+enim\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":91,\"title\":\"nesciunt\",\"description\":\"facilis\",\"currency\":\"PHP\",\"price\":373.9,\"brand\":\"repudiandae\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0000aa?text=product+officiis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":92,\"title\":\"aut\",\"description\":\"sint\",\"currency\":\"PHP\",\"price\":294,\"brand\":\"minus\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/001111?text=product+nesciunt\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":93,\"title\":\"magni\",\"description\":\"fuga\",\"currency\":\"PHP\",\"price\":368,\"brand\":\"doloribus\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee99?text=product+aliquid\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":94,\"title\":\"veniam\",\"description\":\"repellat\",\"currency\":\"PHP\",\"price\":368.2,\"brand\":\"ut\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0055ee?text=product+recusandae\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":95,\"title\":\"dignissimos\",\"description\":\"ut\",\"currency\":\"PHP\",\"price\":431.7,\"brand\":\"occaecati\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/0022cc?text=product+et\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":96,\"title\":\"fugit\",\"description\":\"consequatur\",\"currency\":\"PHP\",\"price\":301,\"brand\":\"blanditiis\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/000088?text=product+sint\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":97,\"title\":\"ut\",\"description\":\"ut\",\"currency\":\"PHP\",\"price\":233.8,\"brand\":\"iste\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/002200?text=product+rerum\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":98,\"title\":\"voluptas\",\"description\":\"qui\",\"currency\":\"PHP\",\"price\":420.5,\"brand\":\"quisquam\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009933?text=product+corrupti\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":99,\"title\":\"laboriosam\",\"description\":\"saepe\",\"currency\":\"PHP\",\"price\":467.8,\"brand\":\"excepturi\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ee22?text=product+ut\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":100,\"title\":\"at\",\"description\":\"unde\",\"currency\":\"PHP\",\"price\":290.9,\"brand\":\"odit\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00cc88?text=product+reiciendis\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":101,\"title\":\"consectetur\",\"description\":\"tempore\",\"currency\":\"PHP\",\"price\":233.3,\"brand\":\"laborum\",\"category\":\"sports\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/009933?text=product+molestiae\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":102,\"title\":\"quis\",\"description\":\"dicta\",\"currency\":\"PHP\",\"price\":437.4,\"brand\":\"et\",\"category\":\"health\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00eecc?text=product+repellendus\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"},{\"id\":103,\"title\":\"veniam\",\"description\":\"sint\",\"currency\":\"PHP\",\"price\":470.2,\"brand\":\"odio\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff55?text=product+quia\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/search\/{keywords}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/search\/:keywords",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/search\/:keywords",
+                            "variable": [
+                                {
+                                    "id": "keywords",
+                                    "key": "keywords",
+                                    "value": "neque",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":[{\"id\":6,\"title\":\"neque\",\"description\":\"minus\",\"currency\":\"PHP\",\"price\":339,\"brand\":\"aut\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/640x480.png\\\/00ff88?text=product+et\",\"created_at\":\"2022-10-12T12:14:20.000000Z\",\"updated_at\":\"2022-10-12T12:14:20.000000Z\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"category\":\"apparel\"},{\"category\":\"book\"},{\"category\":\"electronic device\"},{\"category\":\"sports\"},{\"category\":\"health\"}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products\/category\/{category_name}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/category\/:category_name",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/category\/:category_name",
+                            "variable": [
+                                {
+                                    "id": "category_name",
+                                    "key": "category_name",
+                                    "value": "voluptatem",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":[]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/products",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"molestiae\",\"description\":\"autem\",\"currency\":\"dolores\",\"price\":\"qui\",\"brand\":\"quo\",\"category\":\"molestiae\",\"image\":\"dolorem\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/products\/{product_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:product_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:product_id",
+                            "variable": [
+                                {
+                                    "id": "product_id",
+                                    "key": "product_id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"cumque\",\"description\":\"rerum\",\"currency\":\"et\",\"price\":\"placeat\",\"brand\":\"labore\",\"category\":\"recusandae\",\"image\":\"aliquam\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/products\/{product_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:product_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:product_id",
+                            "variable": [
+                                {
+                                    "id": "product_id",
+                                    "key": "product_id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/products\/{product_id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:product_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:product_id",
+                            "variable": [
+                                {
+                                    "id": "product_id",
+                                    "key": "product_id",
+                                    "value": "1",
+                                    "description": "The ID of the product."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":{\"id\":1,\"title\":\"Jacket\",\"description\":\"Given Jacket Description\",\"currency\":\"PHP\",\"price\":1234.56,\"brand\":\"KuyaWill\",\"category\":\"apparel\",\"image\":\"https:\\\/\\\/netstorage-kami.akamaized.net\\\/images\\\/0fgjhs1shmj74jpi4g.jpg?&imwidth=1200\",\"created_at\":null,\"updated_at\":null}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}
